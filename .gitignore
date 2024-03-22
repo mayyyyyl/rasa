@@ -1,0 +1,13 @@
+# Fichiers générés lors de l'exécution de commandes Rasa
+__pycache__/
+models/
+.rasa/
+venv/
+
+# Fichiers de configuration de l'IDE ou de l'éditeur
+.idea/
+.vscode/
+
+# Fichiers temporaires
+*.log
+*.pyc
