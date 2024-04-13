@@ -34,3 +34,18 @@ stories:
     - intent: weather
     - action: utter_weather
     - action: utter_goodbye
+
+- story: book_hotel
+  steps:
+    - intent: book_hotel
+    - action: utter_ask_date
+    - intent: inform
+      entities:
+        - date: "2025-01-12"
+    - action: utter_ask_city
+    - intent: inform
+      entities:
+        - city: "Saint Malo"
+    - action: utter_confirm_reservation
+    - intent: affirm
+    - action: utter_goodbye

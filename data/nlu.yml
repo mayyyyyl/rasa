@@ -95,3 +95,20 @@ nlu:
     - Donne-moi la météo de Paris.
     - Je veux connaître la météo.
     - Quel est le temps prévu pour cette semaine ?
+
+- intent: book_hotel
+  examples: |
+    - Je veux réserver un hôtel
+    - Réserver une chambre d'hôtel
+    - J'ai besoin d'une chambre pour la nuit
+    - Est-ce que je peux faire une réservation d'hôtel ?
+
+- intent: inform
+  examples: |
+    - le [12/01/2025](date)
+    - [24/05/2024](date)
+    - A partir du [04/09/2024](date)
+    - [Saint Malo](city)
+    - [Paris](city)
+    - [Nantes](city)
+    - A [Nice](city)

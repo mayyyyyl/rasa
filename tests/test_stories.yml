@@ -97,3 +97,23 @@ stories:
     intent: weather
   - action: utter_weather
   - action: utter_goodbye
+
+
+- story: book_hotel
+  steps:
+  - user: "je veux réserver un hôtel"
+    intent: book_hotel
+  - action: utter_ask_date
+  - user: "le 12/01/2024"
+    intent: inform
+    entities:
+      - date: "2025-01-12"
+  - action: utter_ask_city
+  - user: "saint malo"
+    intent: inform
+    entities:
+      - city: "Saint Malo"
+  - action: utter_confirm_reservation
+  - user: "oui"
+    intent: affirm
+  - action: utter_goodbye
