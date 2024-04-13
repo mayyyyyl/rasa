@@ -8,26 +8,30 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - weather
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Salut ! Comment ça va ?"
 
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  - text: "Voici quelque chose pout te remonter le moral:"
+    image: "https://i.imgur.com/s5Mr7Co.jpeg"
 
   utter_did_that_help:
-  - text: "Did that help you?"
+  - text: "Est ce que ça vous a aidé ?"
 
   utter_happy:
-  - text: "Great, carry on!"
+  - text: "Super !"
 
   utter_goodbye:
-  - text: "Bye"
+  - text: "Au revoir"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "Oui je suis un bot, propulsé by Rasa."
+
+  utter_weather:
+    - text: "Bien sûr, il fait beau. Mais comme dirait le dicton en avril ne te découvre pas d'un fil !"
 
 session_config:
   session_expiration_time: 60
