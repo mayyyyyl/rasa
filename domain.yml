@@ -9,17 +9,45 @@ intents:
   - mood_unhappy
   - bot_challenge
   - weather
+  - book_table
+
+slots:
+  date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: date
+  number_of_people:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: number_of_people
+  reservation_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: reservation_name
+  phone_number:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: phone_number
+  comment:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: comment
 
 responses:
   utter_greet:
   - text: "Salut ! Comment ça va ?"
 
   utter_cheer_up:
-  - text: "Voici quelque chose pout te remonter le moral:"
+  - text: "Voici quelque chose pour te remonter le moral:"
     image: "https://i.imgur.com/s5Mr7Co.jpeg"
 
   utter_did_that_help:
-  - text: "Est ce que ça vous a aidé ?"
+  - text: "Est-ce que ça vous a aidé ?"
 
   utter_happy:
   - text: "Super !"
@@ -28,10 +56,37 @@ responses:
   - text: "Au revoir"
 
   utter_iamabot:
-  - text: "Oui je suis un bot, propulsé by Rasa."
+  - text: "Oui je suis un bot, propulsé par Rasa."
 
   utter_weather:
-    - text: "Bien sûr, il fait beau. Mais comme dirait le dicton en avril ne te découvre pas d'un fil !"
+    - text: "Bien sûr, il fait beau. Mais comme dit le dicton en avril, ne te découvre pas d'un fil !"
+  
+  utter_ask_date:
+    - text: "À quelle date souhaitez-vous réserver la table ?"
+
+  utter_ask_number_of_people:
+    - text: "Pour combien de personnes souhaitez-vous réserver ?"
+
+  utter_ask_reservation_name:
+    - text: "Sous quel nom souhaitez-vous effectuer la réservation ?"
+
+  utter_ask_phone_number:
+    - text: "Pouvez-vous me donner votre numéro de téléphone pour la réservation ?"
+
+  utter_ask_comment:
+    - text: "Avez-vous des commentaires ou des demandes spéciales pour votre réservation ?"
+
+  utter_confirm_reservation:
+    - text: "Je résume : vous avez réservé une table pour {number_of_people} personnes le {date} sous le nom de {reservation_name}. Votre numéro de téléphone est {phone_number}. Commentaire : {comment}. Est-ce correct ?"
+
+  utter_reservation_success:
+    - text: "Votre réservation a été confirmée avec succès. Un numéro de réservation vous a été envoyé par SMS."
+
+  utter_reservation_failed:
+    - text: "Désolé, la réservation n'a pas pu être effectuée. Veuillez réessayer plus tard ou contacter le restaurant directement."
+  
+  utter_cancel_reservation:
+    - text: "Votre réservation a été annulée avec succès. Nous espérons vous revoir bientôt !"
 
 session_config:
   session_expiration_time: 60

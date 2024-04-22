@@ -95,3 +95,9 @@ nlu:
     - Donne-moi la météo de Paris.
     - Je veux connaître la météo.
     - Quel est le temps prévu pour cette semaine ?
+
+- intent: book_table
+  examples: |
+    - Je veux réserver une table
+    - Réserver pour ce soir
+    - Je souhaite réserver une table
