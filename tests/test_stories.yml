@@ -5,95 +5,87 @@ stories:
 - story: happy path 1
   steps:
   - user: |
-      salut !
+      hello there!
     intent: greet
   - action: utter_greet
   - user: |
-      super
+      amazing
     intent: mood_great
   - action: utter_happy
 
 - story: happy path 2
   steps:
   - user: |
-      salut !
+      hello there!
     intent: greet
   - action: utter_greet
   - user: |
-      super
+      amazing
     intent: mood_great
   - action: utter_happy
   - user: |
-      au revoir
+      bye-bye!
     intent: goodbye
   - action: utter_goodbye
 
 - story: sad path 1
   steps:
   - user: |
-      bonjour
+      hello
     intent: greet
   - action: utter_greet
   - user: |
-      pas super
+      not good
     intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
   - user: |
-      oui
+      yes
     intent: affirm
   - action: utter_happy
 
 - story: sad path 2
   steps:
   - user: |
-      salut
+      hello
     intent: greet
   - action: utter_greet
   - user: |
-      pas super
+      not good
     intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
   - user: |
-      pas vraiment
+      not really
     intent: deny
   - action: utter_goodbye
 
 - story: sad path 3
   steps:
   - user: |
-      bonsoir
+      hi
     intent: greet
   - action: utter_greet
   - user: |
-      horriblement
+      very terrible
     intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
   - user: |
-      non
+      no
     intent: deny
   - action: utter_goodbye
 
 - story: say goodbye
   steps:
   - user: |
-      au revoir
+      bye-bye!
     intent: goodbye
   - action: utter_goodbye
 
 - story: bot challenge
   steps:
   - user: |
-      es-tu un bot ?
+      are you a bot?
     intent: bot_challenge
   - action: utter_iamabot
-
-- story: weather
-  steps:
-  - user: |
-      peux-tu me dire la météo ?
-    intent: weather
-  - action: utter_weather
-  - action: utter_goodbye

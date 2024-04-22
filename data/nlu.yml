@@ -3,101 +3,89 @@ version: "3.1"
 nlu:
 - intent: greet
   examples: |
-    - salut
-    - bonjour
-    - bonjour là-bas
-    - bonsoir
-    - salut là-bas
-    - c'est parti
-    - salut mec
-    - bonsoir
-    - bon après-midi
-    - bon aprem
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
 
 - intent: goodbye
   examples: |
-    - à plus
-    - au revoir
-    - à plus tard
-    - bonne nuit
-    - salut
-    - au revoir
-    - passe une bonne journée
-    - à bientôt
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
     - bye bye
-    - tchao
-    - à plus tard
+    - see you later
 
 - intent: affirm
   examples: |
-    - oui
-    - ouais
-    - en effet
-    - bien sûr
-    - ça semble bien
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
     - correct
 
 - intent: deny
   examples: |
-    - non
-    - non non non
-    - jamais
-    - je ne pense pas
-    - je n'aime pas ça
-    - pas du tout
-    - pas vraiment
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
 
 - intent: mood_great
   examples: |
-    - parfait
-    - super
-    - incroyable
-    - merveilleux
-    - je me sens très bien
-    - je vais bien
-    - je suis génial
-    - je suis incroyable
-    - super excité(e)
-    - extrêmement bien
-    - tellement parfait
-    - si bien
-    - au top
-    - parfaitement parfait
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
 
 - intent: mood_unhappy
   examples: |
-    - ma journée était horrible
-    - je suis triste
-    - je ne me sens pas très bien
-    - je suis déçu(e)
-    - super triste
-    - je suis tellement triste
-    - triste
-    - très triste
-    - malheureux
-    - pas bien
-    - pas très bien
-    - extrêmement triste
-    - tellement triste
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
 
 - intent: bot_challenge
   examples: |
-    - es-tu un bot ?
-    - es-tu un humain ?
-    - est-ce que je parle à un bot ?
-    - est-ce que je parle à un humain ?
-
-- intent: weather
-  examples: |
-    - Quel temps fait-il aujourd'hui ?
-    - Peux-tu me dire la météo ?
-    - Quel sera le temps demain ?
-    - Donne-moi la météo de Paris.
-    - Je veux connaître la météo.
-    - Quel est le temps prévu pour cette semaine ?
-
-- intent: book_table
-  examples: |
-    - Je veux réserver une table
-    - Réserver pour ce soir
-    - Je souhaite réserver une table
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
