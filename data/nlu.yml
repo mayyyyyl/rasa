@@ -20,7 +20,6 @@ nlu:
     - au revoir
     - à plus tard
     - bonne nuit
-    - salut
     - au revoir
     - passe une bonne journée
     - à bientôt
@@ -85,3 +84,65 @@ nlu:
     - es-tu un humain ?
     - est-ce que je parle à un bot ?
     - est-ce que je parle à un humain ?
+
+- intent: book_table
+  examples: |
+    - Je voudrais réserver une table.
+    - Est-ce que je peux réserver une table ?
+    - J'aimerais faire une réservation pour ce soir.
+
+- intent: request_cancellation
+  examples: |
+    - Je veux annuler ma réservation.
+    - Est-il possible d'annuler ma réservation ?
+    - Je ne pourrai pas venir, je veux annuler ma réservation.
+
+- intent: request_reservation_information
+  examples: |
+    - Pouvez-vous me donner des informations sur ma réservation ?
+    - Je voudrais savoir quand est ma réservation.
+    - Je souhaite vérifier ma réservation.
+
+- intent: request_date
+  examples: |
+    - Je veux réserver pour mardi soir
+    - Quand voulez-vous réserver la table ?
+    - À quelle date préférez-vous réserver ?
+
+- intent: request_number_of_people
+  examples: |
+    - Pour combien de personnes voulez-vous réserver ?
+    - Combien de personnes seront présentes à votre réservation ?
+    - Quel est le nombre de personnes pour la réservation ?
+
+- intent: request_reservation_name
+  examples: |
+    - Sous quel nom dois-je réserver la table ?
+    - Quel est le nom de réservation ?
+    - À quel nom dois-je réserver la table ?
+
+- intent: request_phone_number
+  examples: |
+    - Puis-je avoir votre numéro de téléphone pour la réservation ?
+    - Quel est votre numéro de téléphone pour la réservation ?
+    - Avez-vous un numéro de téléphone pour la réservation ?
+
+- intent: modify_comment
+  examples: |
+    - Je voudrais ajouter un commentaire à ma réservation.
+    - Est-ce que je peux modifier le commentaire de ma réservation ?
+    - Comment puis-je ajouter des commentaires à ma réservation ?
+
+- intent: inform
+  examples: |
+    - le [12/01/2025](date)
+    - [24/05/2024](date)
+    - pour le [04/09/2024](date)
+    - pour [4 personnes](number_of_people)
+    - [2](number_of_people)
+    - une réservation pour [deux personnes](number_of_people)
+    - [Jeanne Delaforet](reservation_name)
+    - Famille [Meunier](reservation_name)
+    - Sous le nom de [Marie Dupuit](reservation_name)
+    - [0240405568](phone_number)
+    - Mon numéro est [0240452363](phone_number)

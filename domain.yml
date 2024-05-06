@@ -8,6 +8,24 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - inform
+  - book_table
+  - request_date
+  - request_number_of_people
+  - request_reservation_name
+  - request_phone_number
+  - request_cancellation
+  - request_reservation_number
+  - request_reservation_information
+  - modify_comment
+
+actions:
+- action_check_availability
+- inform_availability
+- action_make_reservation
+- action_cancel_reservation
+- action_display_reservation_information
+- action_modify_comment
 
 responses:
   utter_greet:
@@ -28,6 +46,30 @@ responses:
 
   utter_iamabot:
   - text: "Je suis un bot, propulsé par Rasa."
+
+  utter_ask_date:
+  - text: "Pour quelle date souhaitez-vous réserver ?"
+  
+  utter_ask_number_of_people:
+  - text: "Pour combien de personnes voulez-vous réserver ?"
+  
+  utter_ask_reservation_name:
+  - text: "Sous quel nom dois-je réserver la table ?"
+  
+  utter_ask_phone_number:
+  - text: "Puis-je avoir votre numéro de téléphone pour la réservation ?"
+  
+  utter_confirmation_reservation:
+  - text: "Votre réservation a été confirmée."
+  
+  utter_ask_reservation_number:
+  - text: "Quel est le numéro de votre réservation ?"
+  
+  utter_confirmation_cancellation:
+  - text: "Votre réservation a été annulée."
+  
+  utter_confirmation_comment_modification:
+  - text: "Le commentaire de votre réservation a été modifié avec succès."
 
 session_config:
   session_expiration_time: 60
