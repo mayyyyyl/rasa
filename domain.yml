@@ -1,12 +1,43 @@
 version: "3.1"
 
 slots:
+  date:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: date
+  number_of_people:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: number_of_people
+  reservation_name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: reservation_name
+  phone_number:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: phone_number
+  available:
+    type: bool
+    mappings:
+    - type: from_intent
+      intent: inform_availability
+      value: true
   reservation_number:
     type: text
-    mappings: []
+    mappings:
+    - type: from_text
 
 entities:
   - reservation_name
+  - date
+  - number_of_people
+  - phone_number
+  - reservation_number
 
 intents:
   - greet
@@ -16,11 +47,10 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
-  - inform
   - book_table
   - request_date
   - request_number_of_people
-  - request_reservation_name
+  - request_name
   - request_phone_number
   - request_cancellation
   - request_reservation_number
@@ -29,13 +59,16 @@ intents:
   - request_restaurant_allergens
   - request_restaurant_menu
   - request_restaurant_daily_menu
+  - inform
+  - inform_availability
 
 responses:
   utter_greet:
-  - text: "Salut ! Comment ça va ?"
+  - text: "Bonjour ! \n
+  Que voulez vous faire réserver une table, annuler une réservation, obtenir des informations sur une réservation, obtenir le menu du restaurant ?"
 
   utter_cheer_up:
-  - text: "Voici quelque chose pout te remonter le moral:"
+  - text: "Voici quelque chose pour te remonter le moral:"
     image: "https://i.imgur.com/nGF1K8f.jpg"
 
   utter_did_that_help:
@@ -75,26 +108,28 @@ responses:
   - text: "Le commentaire de votre réservation a été modifié avec succès."
 
   utter_get_all_allergens:
-  - text: "Voici tous les allergènes présents dans nos plats: \n
-          l'œuf,\n
-          l'arachide,\n
-          les protéines du lait de vache (le lait maternel ne provoque pas d'allergie),\n
-          la moutarde,\n
-          le poisson,\n
-          les fruits à coque.\n
-        Certains des allergènes suivant peuvent être enlevés par les chefs lors de la préparation pour plus d'informations veuillez nous appeler ;)"
+  - text: |
+        Voici tous les allergènes présents dans nos plats: 
+        - l'œuf,
+        - l'arachide,
+        - les protéines du lait de vache (le lait maternel ne provoque pas d'allergie),
+        - la moutarde,
+        - le poisson,
+        - les fruits à coque.
+        Certains des allergènes suivant peuvent être enlevés par les chefs lors de la préparation pour plus d'informations veuillez nous appeler ;)
 
   utter_show_menu:
   - text: "Voici le menu du restaurant : https://basilic-and-co.com/wp-content/uploads/2019/12/Menu-carte-restaurant-Basilic-and-Co-Nantes-Schuman.pdf"
 
 actions:
 - action_check_availability
-- inform_availability
+- action_inform_availability
 - action_make_reservation
 - action_cancel_reservation
 - action_display_reservation_information
 - action_modify_comment
 - action_get_reservation_number
+- action_check_phone_number
 
 session_config:
   session_expiration_time: 60

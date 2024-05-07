@@ -2,6 +2,22 @@ version: "3.1"
 
 stories:
 
+- story: Main Path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: inform_choice
+    entities:
+      - choice:
+          - happy
+          - sad
+          - book_table
+          - cancel_reservation
+          - show_reservation_info
+          - get_restaurant_info
+          - get_restaurant_menu
+  - action: action_handle_choice
+
 - story: happy path
   steps:
   - intent: greet
@@ -29,17 +45,17 @@ stories:
   - intent: deny
   - action: utter_goodbye
 
-- story: book a table
+- story: Book a table
   steps:
   - intent: book_table
   - action: utter_ask_date
   - intent: inform
     entities:
-      - date: "2025-05-10" 
+      - date: "2025-05-10"
   - action: utter_ask_number_of_people
   - intent: inform
     entities:
-      - number_of_people: "4" 
+      - number_of_people: "4"
   - action: utter_ask_reservation_name
   - intent: inform
     entities:
@@ -48,18 +64,18 @@ stories:
   - intent: inform
     entities:
       - phone_number: "0240405568"
+  - action: action_check_phone_number
   - action: action_check_availability
-  - action: inform_availability
+  - action: action_inform_availability
   - action: action_make_reservation
   - action: action_get_reservation_number
-  - action: utter_confirmation_reservation
   - action: utter_goodbye
 
 - story: cancel a reservation
   steps:
   - intent: request_cancellation
   - action: utter_ask_phone_number
-  - intent: inform
+  - intent: request_phone_number
     entities:
       - phone_number: "0240405568"
   - action: action_cancel_reservation

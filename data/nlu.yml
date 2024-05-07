@@ -115,7 +115,7 @@ nlu:
     - Combien de personnes seront présentes à votre réservation ?
     - Quel est le nombre de personnes pour la réservation ?
 
-- intent: request_reservation_name
+- intent: request_name
   examples: |
     - Sous quel nom dois-je réserver la table ?
     - Quel est le nom de réservation ?
@@ -133,22 +133,77 @@ nlu:
     - Est-ce que je peux modifier le commentaire de ma réservation ?
     - Comment puis-je ajouter des commentaires à ma réservation ?
 
-- intent: inform
+- intent: request_number_of_people
+  examples: |
+    - pour [4] personnes(number_of_people)
+    - une réservation pour [2] personnes(number_of_people)
+    - un groupe de [8] personnes merci(number_of_people)
+    - un groupe de [6] personnes.(number_of_people)
+    - un groupe de [10] personnes(number_of_people)
+    - un groupe de [13] personnes(number_of_people)
+    - un groupe de [16] personnes(number_of_people)
+    - un groupe de [17] personnes(number_of_people)
+    - un groupe de [20] personnes(number_of_people)
+    - un groupe de [15] personnes(number_of_people)
+    - pour [1](number_of_people)
+    - pour [2](number_of_people)
+    - pour [3](number_of_people)
+    - pour [4](number_of_people)
+    - pour [5](number_of_people)
+    - pour [6](number_of_people)
+    - pour [7](number_of_people)
+    - pour [8](number_of_people)
+    - pour [9](number_of_people)
+    - pour [10](number_of_people)
+    - pour [11](number_of_people)
+    - pour [2] personnes(number_of_people)
+    - pour [3] personnes(number_of_people)
+    - pour [8] personnes(number_of_people)
+    - pour [5] personnes(number_of_people)
+    - pour [6] personnes(number_of_people)
+    - pour [7] personnes(number_of_people)
+
+- intent: request_date
   examples: |
     - le [12/01/2025](date)
     - [24/05/2024](date)
     - pour le [04/09/2024](date)
-    - pour [4 personnes](number_of_people)
-    - [2](number_of_people)
-    - une réservation pour [deux personnes](number_of_people)
-    - [Jeanne Delaforet](reservation_name)
-    - Famille [Meunier](reservation_name)
-    - [Dupont](reservation_name)
-    - Sous le nom de [Marie Dupuit](reservation_name)
-    - [0240405568](phone_number)
-    - Mon numéro est [0240452363](phone_number)
-    - Demain soir (date)
-    - Au nom de [Louise Delaforet](reservation_name).
+    - le [22/01/2025](date)
+    - [24/06/2024](date)
+    - pour le [04/03/2024](date)
+    - le [12/02/2025](date)
+    - [24/10/2024](date)
+    - pour le [04/09/2024](date)
+    - le [02/01/2025](date)
+    - [15/05/2024](date)
+    - pour le [22/12/2024](date)
+    - le [30/05/2025](date)
+    - [01/05/2024](date)
+    - pour le [13/09/2024](date)
+    - le [22/01/2025](date)
+    - [20/10/2024](date)
+    - pour le [04/08/2024](date)
+    - le [19/01/2025](date)
+    - [25/06/2024](date)
+    - pour le [13/12/2024](date)
+
+- intent: request_name
+  examples: |
+    - [Jeanne Delaforet](name)
+    - [Famille Meunier](name)
+    - [Dupont](name)
+    - Sous le nom de [Marie Dupuit](name)
+    - Au nom de [Louise Delaforet].(name)
+    - [Jeanne Fillon](name)
+    - [Famille Le BOrgne](name)
+    - [Ahmed](name)
+    - Sous le nom de [Gérard Loulou](name)
+    - Au nom de [A Soullit].(name)
+    - [Jean Foret](name)
+    - [Famille Miro](name)
+    - [Nizet](name)
+    - Sous le nom de [Timeo](name)
+    - Au nom de [Chloé Germond].(name)
   
 - intent: request_restaurant_allergens
   examples: |
