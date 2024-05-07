@@ -89,3 +89,50 @@ stories:
       es-tu un bot ?
     intent: bot_challenge
   - action: utter_iamabot
+
+- story: get a table
+  steps:
+  - user: Je voudrais réserver une table.
+    intent: book_table
+  - action: utter_ask_date
+  - user: Demain soir.
+    intent: request_date
+  - action: utter_ask_number_of_people
+  - user: Pour deux personnes.
+    intent: request_number_of_people
+  - action: utter_ask_reservation_name
+  - user: Au nom de Louise Delaforet.
+    intent: request_reservation_name
+  - action: utter_ask_phone_number
+  - user: 0240405568
+    intent: request_phone_number
+  - action: action_check_availability
+  - action: inform_availability
+  - action: action_make_reservation
+  - action: utter_confirmation_reservation
+
+- story: cancel a reservation
+  steps:
+  - user: Je veux annuler ma réservation.
+    intent: request_cancellation
+  - action: utter_ask_reservation_number
+  - user: Mon numéro de réservation est LJ203.
+    intent: request_reservation_number
+  - action: action_cancel_reservation
+  - action: utter_confirmation_cancellation
+
+- story: show reservation information and modify the comment
+  steps:
+  - user: Pouvez-vous me donner des informations sur ma réservation ?
+    intent: request_reservation_information
+  - action: action_display_reservation_information
+  - user: Je voudrais ajouter un commentaire à ma réservation.
+    intent: modify_comment
+  - action: action_modify_comment
+  - action: utter_confirmation_comment_modification
+
+- story: get restaurant allergenes
+  steps:
+  - user: Quels sont les allergènes ?
+    intent: request_restaurant_allergens
+  - action: utter_get_all_allergens

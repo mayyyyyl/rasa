@@ -1,5 +1,13 @@
 version: "3.1"
 
+slots:
+  reservation_number:
+    type: text
+    mappings: []
+
+entities:
+  - reservation_name
+
 intents:
   - greet
   - goodbye
@@ -18,14 +26,9 @@ intents:
   - request_reservation_number
   - request_reservation_information
   - modify_comment
-
-actions:
-- action_check_availability
-- inform_availability
-- action_make_reservation
-- action_cancel_reservation
-- action_display_reservation_information
-- action_modify_comment
+  - request_restaurant_allergens
+  - request_restaurant_menu
+  - request_restaurant_daily_menu
 
 responses:
   utter_greet:
@@ -60,7 +63,7 @@ responses:
   - text: "Puis-je avoir votre numéro de téléphone pour la réservation ?"
   
   utter_confirmation_reservation:
-  - text: "Votre réservation a été confirmée."
+  - text: "Votre réservation a été confirmée. Voici votre numéro de réservation : {reservation_number}"
   
   utter_ask_reservation_number:
   - text: "Quel est le numéro de votre réservation ?"
@@ -70,6 +73,28 @@ responses:
   
   utter_confirmation_comment_modification:
   - text: "Le commentaire de votre réservation a été modifié avec succès."
+
+  utter_get_all_allergens:
+  - text: "Voici tous les allergènes présents dans nos plats: \n
+          l'œuf,\n
+          l'arachide,\n
+          les protéines du lait de vache (le lait maternel ne provoque pas d'allergie),\n
+          la moutarde,\n
+          le poisson,\n
+          les fruits à coque.\n
+        Certains des allergènes suivant peuvent être enlevés par les chefs lors de la préparation pour plus d'informations veuillez nous appeler ;)"
+
+  utter_show_menu:
+  - text: "Voici le menu du restaurant : https://basilic-and-co.com/wp-content/uploads/2019/12/Menu-carte-restaurant-Basilic-and-Co-Nantes-Schuman.pdf"
+
+actions:
+- action_check_availability
+- inform_availability
+- action_make_reservation
+- action_cancel_reservation
+- action_display_reservation_information
+- action_modify_comment
+- action_get_reservation_number
 
 session_config:
   session_expiration_time: 60

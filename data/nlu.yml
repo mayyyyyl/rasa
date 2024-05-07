@@ -143,6 +143,27 @@ nlu:
     - une réservation pour [deux personnes](number_of_people)
     - [Jeanne Delaforet](reservation_name)
     - Famille [Meunier](reservation_name)
+    - [Dupont](reservation_name)
     - Sous le nom de [Marie Dupuit](reservation_name)
     - [0240405568](phone_number)
     - Mon numéro est [0240452363](phone_number)
+    - Demain soir (date)
+    - Au nom de [Louise Delaforet](reservation_name).
+  
+- intent: request_restaurant_allergens
+  examples: |
+    - Quels sont les allergènes ?
+    - Je voudrais connaître les allergènes.
+    - Affiche-moi les allergènes.
+    - Puis-je avoir accès à la liste des allergènes ?
+    - Aurez-vous la liste des allergènes.
+    - Pouvez-vous me communiquer la liste des allergènes.
+
+- intent: request_restaurant_menu
+  examples: |
+    - Quel est le menu du jour ?
+    - Donne-moi le menu du jour.
+    - Je veux savoir ce qui est au menu aujourd'hui.
+    - Où puis-je trouver le menu complet ?
+    - Montre-moi le lien vers le menu complet.
+    - Je voudrais consulter le menu complet.

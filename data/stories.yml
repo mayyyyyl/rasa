@@ -31,28 +31,29 @@ stories:
 
 - story: book a table
   steps:
-    - intent: book_table
-    - action: utter_ask_date
-    - intent: inform
-      entities:
-        - date: "2025-05-10" 
-    - action: utter_ask_number_of_people
-    - intent: inform
-      entities:
-        - number_of_people: "4" 
-    - action: utter_ask_reservation_name
-    - intent: inform
-      entities:
-        - reservation_name: "John Doe"
-    - action: utter_ask_phone_number
-    - intent: inform
-      entities:
-        - phone_number: "0240405568"
-    - action: action_check_availability
-    - action: inform_availability
-    - action: action_make_reservation
-    - action: utter_confirmation_reservation
-    - action: utter_goodbye
+  - intent: book_table
+  - action: utter_ask_date
+  - intent: inform
+    entities:
+      - date: "2025-05-10" 
+  - action: utter_ask_number_of_people
+  - intent: inform
+    entities:
+      - number_of_people: "4" 
+  - action: utter_ask_reservation_name
+  - intent: inform
+    entities:
+      - reservation_name: "John Doe"
+  - action: utter_ask_phone_number
+  - intent: inform
+    entities:
+      - phone_number: "0240405568"
+  - action: action_check_availability
+  - action: inform_availability
+  - action: action_make_reservation
+  - action: action_get_reservation_number
+  - action: utter_confirmation_reservation
+  - action: utter_goodbye
 
 - story: cancel a reservation
   steps:
@@ -72,4 +73,16 @@ stories:
   - intent: modify_comment
   - action: action_modify_comment
   - action: utter_confirmation_comment_modification
+  - action: utter_goodbye
+
+- story: get restaurant information
+  steps:
+  - intent: request_restaurant_allergens
+  - action: utter_get_all_allergens
+  - action: utter_goodbye
+
+- story: get restaurant menu
+  steps: 
+  - intent: request_restaurant_menu
+  - action: utter_show_menu
   - action: utter_goodbye
