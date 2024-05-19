@@ -189,21 +189,29 @@ nlu:
 
 - intent: request_name
   examples: |
-    - [Jeanne Delaforet](name)
-    - [Famille Meunier](name)
-    - [Dupont](name)
-    - Sous le nom de [Marie Dupuit](name)
-    - Au nom de [Louise Delaforet].(name)
-    - [Jeanne Fillon](name)
-    - [Famille Le BOrgne](name)
-    - [Ahmed](name)
-    - Sous le nom de [Gérard Loulou](name)
-    - Au nom de [A Soullit].(name)
-    - [Jean Foret](name)
-    - [Famille Miro](name)
-    - [Nizet](name)
-    - Sous le nom de [Timeo](name)
-    - Au nom de [Chloé Germond].(name)
+    - [Jeanne Delaforet](reservation_name)
+    - [Famille Meunier](reservation_name)
+    - [Dupont](reservation_name)
+    - Sous le nom de [Marie Dupuit](reservation_name)
+    - Au nom de [Louise Delaforet].(reservation_name)
+    - [Jeanne Fillon](reservation_name)
+    - [Famille Le Borgne](reservation_name)
+    - [Ahmed](reservation_name)
+    - Sous le nom de [Gérard Loulou](reservation_name)
+    - Au nom de [A Soullit].(reservation_name)
+    - [Jean Foret](reservation_name)
+    - [Famille Miro](reservation_name)
+    - [Nizet](reservation_name)
+    - Sous le nom de [Timeo](reservation_name)
+    - Au nom de [Chloé Germond].(reservation_name)
+
+- intent: request_phone_number
+  examples: |
+    - Oui c'est [0681245212](phone_number)
+    - [0240405568](phone_number)
+    - Mon numéro est [0240452363](phone_number)
+    - Mon téléphone est [0240405568](phone_number)
+    - Bien sûr [0240125868](phone_number)
   
 - intent: request_restaurant_allergens
   examples: |

@@ -21,12 +21,6 @@ slots:
     mappings:
     - type: from_entity
       entity: phone_number
-  available:
-    type: bool
-    mappings:
-    - type: from_intent
-      intent: inform_availability
-      value: true
   reservation_number:
     type: text
     mappings:
@@ -58,9 +52,7 @@ intents:
   - modify_comment
   - request_restaurant_allergens
   - request_restaurant_menu
-  - request_restaurant_daily_menu
-  - inform
-  - inform_availability
+  - inform_choice
 
 responses:
   utter_greet:
@@ -95,9 +87,6 @@ responses:
   utter_ask_phone_number:
   - text: "Puis-je avoir votre numéro de téléphone pour la réservation ?"
   
-  utter_confirmation_reservation:
-  - text: "Votre réservation a été confirmée. Voici votre numéro de réservation : {reservation_number}"
-  
   utter_ask_reservation_number:
   - text: "Quel est le numéro de votre réservation ?"
   
@@ -123,13 +112,13 @@ responses:
 
 actions:
 - action_check_availability
-- action_inform_availability
-- action_make_reservation
 - action_cancel_reservation
 - action_display_reservation_information
 - action_modify_comment
 - action_get_reservation_number
-- action_check_phone_number
+- action_make_reservation
+- action_confirm_reservation
+- action_handle_choice
 
 session_config:
   session_expiration_time: 60

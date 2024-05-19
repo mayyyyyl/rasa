@@ -31,3 +31,10 @@ rules:
   steps:
   - intent: request_name
   - action: utter_ask_phone_number
+
+- rule: Handle phone number and make reservation
+  steps:
+  - intent: request_phone_number
+  - action: action_make_reservation
+  - action: action_confirm_reservation
+  - action: utter_goodbye

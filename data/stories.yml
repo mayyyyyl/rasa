@@ -49,35 +49,32 @@ stories:
   steps:
   - intent: book_table
   - action: utter_ask_date
-  - intent: inform
+  - intent: request_date
     entities:
       - date: "2025-05-10"
   - action: utter_ask_number_of_people
-  - intent: inform
+  - intent: request_number_of_people
     entities:
       - number_of_people: "4"
   - action: utter_ask_reservation_name
-  - intent: inform
+  - intent: request_name
     entities:
       - reservation_name: "John Doe"
   - action: utter_ask_phone_number
-  - intent: inform
+  - intent: request_phone_number
     entities:
       - phone_number: "0240405568"
-  - action: action_check_phone_number
-  - action: action_check_availability
-  - action: action_inform_availability
   - action: action_make_reservation
-  - action: action_get_reservation_number
+  - action: action_confirm_reservation
   - action: utter_goodbye
 
 - story: cancel a reservation
   steps:
   - intent: request_cancellation
-  - action: utter_ask_phone_number
-  - intent: request_phone_number
+  - action: utter_ask_reservation_number
+  - intent: request_reservation_number
     entities:
-      - phone_number: "0240405568"
+      - reservation_number: "R123895"
   - action: action_cancel_reservation
   - action: utter_confirmation_cancellation
   - action: utter_goodbye
