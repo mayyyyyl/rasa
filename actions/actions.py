@@ -2,7 +2,6 @@ import json
 import os
 import random
 import re
-
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
@@ -10,6 +9,7 @@ from rasa_sdk.events import SlotSet
 
 RESERVATIONS_FILE_PATH = 'reservations.json'
 
+# Charger le fichier JSON des réservations
 def load_reservations():
     if os.path.exists(RESERVATIONS_FILE_PATH):
         with open(RESERVATIONS_FILE_PATH, 'r') as file:
@@ -19,6 +19,12 @@ def load_reservations():
 def save_reservations(reservations):
     with open(RESERVATIONS_FILE_PATH, 'w') as file:
         json.dump(reservations, file)
+
+# Calculer le nombre total de places réservées pour une date donnée
+def get_total_reserved_seats(date):
+    reservations = load_reservations()
+    total_reserved_seats = sum(reservation['number_of_people'] for reservation in reservations if reservation['date'] == date)
+    return total_reserved_seats
 
 class ActionMakeReservation(Action):
     def name(self) -> Text:
@@ -48,25 +54,27 @@ class ActionMakeReservation(Action):
             dispatcher.utter_message(text="Le nombre de personnes est trop important, nous ne pouvons accueillir des groupes supérieurs à 20 personnes. Veuillez réessayer.")
             return [SlotSet("number_of_people", None), SlotSet("reservation_number", None)]
         
-        disponible = True
+        total_reserved_seats = get_total_reserved_seats(date)
+        max_capacity = 40
         
-        if disponible:
-            reservation_number = f"R{str(random.randint(10000, 99999))}"
-            reservation_details = {
-                "reservation_number": reservation_number,
-                "date": date,
-                "number_of_people": number_of_people,
-                "phone_number": phone_number,
-                "reservation_name": reservation_name
-            }
-            reservations = load_reservations()
-            reservations.append(reservation_details)
-            save_reservations(reservations)
-            dispatcher.utter_message(text=f"Réservation pour {number_of_people} personnes au nom de {reservation_name} le {date}. Votre numéro de réservation est {reservation_number}.")
-            return [SlotSet("reservation_number", reservation_number)]
-        else:
-            dispatcher.utter_message(text=f"Désolé, aucune table disponible pour {number_of_people} personnes le {date}.")
+        if total_reserved_seats + number_of_people > max_capacity:
+            dispatcher.utter_message(text=f"Désolé, il ne reste que {max_capacity - total_reserved_seats} places disponibles pour le {date}.")
             return [SlotSet("reservation_number", None)]
+        
+        reservation_number = f"R{str(random.randint(10000, 99999))}"
+        reservation_details = {
+            "reservation_number": reservation_number,
+            "date": date,
+            "number_of_people": number_of_people,
+            "phone_number": phone_number,
+            "reservation_name": reservation_name
+        }
+        reservations = load_reservations()
+        reservations.append(reservation_details)
+        save_reservations(reservations)
+        
+        dispatcher.utter_message(text=f"Réservation pour {number_of_people} personnes au nom de {reservation_name} le {date}. Votre numéro de réservation est {reservation_number}.")
+        return [SlotSet("reservation_number", reservation_number)]
 
 class ActionConfirmReservation(Action):
 

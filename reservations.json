@@ -19,5 +19,12 @@
         "number_of_people": 8,
         "phone_number": "0524157863",
         "reservation_name": "Famille Meunier"
+    },
+    {
+        "reservation_number": "R12240",
+        "date": "18/05/2025",
+        "number_of_people": 20,
+        "phone_number": "0241512635",
+        "reservation_name": "Nizet"
     }
 ]
