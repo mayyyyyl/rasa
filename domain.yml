@@ -21,6 +21,11 @@ slots:
     mappings:
     - type: from_entity
       entity: phone_number
+    - type: from_text
+      not_intent: 
+        - chitchat
+      value: 
+        pattern: "^[0-9]{10}$"
   reservation_number:
     type: text
     mappings:
@@ -53,6 +58,7 @@ intents:
   - request_restaurant_allergens
   - request_restaurant_menu
   - inform_choice
+  - chitchat
 
 responses:
   utter_greet:
