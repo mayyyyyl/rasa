@@ -18,15 +18,26 @@ class ActionMakeReservation(Action):
         phone_number = tracker.get_slot('phone_number')
         reservation_name = tracker.get_slot('reservation_name')
         
+        # Validate phone number format
         if not re.match(r'^\d{10}$', phone_number):
             dispatcher.utter_message(text="Le numéro de téléphone doit être composé de 10 chiffres. Veuillez réessayer.")
             return [SlotSet("phone_number", None), SlotSet("reservation_number", None)]
+        
+        # Validate number of people
+        try:
+            number_of_people = int(number_of_people)
+            if number_of_people > 20:
+                dispatcher.utter_message(text="Le nombre de personnes est trop important, nous ne pouvons accueillir des groupes supérieurs à 20 personnes. Veuillez réessayer.")
+                return [SlotSet("number_of_people", None), SlotSet("reservation_number", None)]
+        except ValueError:
+            dispatcher.utter_message(text="Le nombre de personnes est trop important, nous ne pouvons accueillir des groupes supérieurs à 20 personnes. Veuillez réessayer.")
+            return [SlotSet("number_of_people", None), SlotSet("reservation_number", None)]
         
         disponible = True
         
         if disponible:
             reservation_number = f"R{str(random.randint(10000, 99999))}"
-            dispatcher.utter_message(text=f"Réservation pour {number_of_people} personnes au nom de {reservation_name} le {date}. Votre numéro de réservation est {reservation_number}.")
+            dispatcher.utter_message(text=f"Réservation pour {number_of_people} personnes au nom de {reservation_name} le {date}.")
             return [SlotSet("reservation_number", reservation_number)]
         else:
             dispatcher.utter_message(text=f"Désolé, aucune table disponible pour {number_of_people} personnes le {date}.")
