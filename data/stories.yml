@@ -99,3 +99,8 @@ stories:
   - intent: request_restaurant_menu
   - action: utter_show_menu
   - action: utter_goodbye
+
+- story: list reservations
+  steps:
+  - intent: list_reservations
+  - action: action_list_reservations

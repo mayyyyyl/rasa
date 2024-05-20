@@ -59,6 +59,7 @@ intents:
   - request_restaurant_menu
   - inform_choice
   - chitchat
+  - list_reservations
 
 responses:
   utter_greet:
@@ -125,6 +126,7 @@ actions:
 - action_make_reservation
 - action_confirm_reservation
 - action_handle_choice
+- action_list_reservations
 
 session_config:
   session_expiration_time: 60

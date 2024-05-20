@@ -230,3 +230,12 @@ nlu:
     - Où puis-je trouver le menu complet ?
     - Montre-moi le lien vers le menu complet.
     - Je voudrais consulter le menu complet.
+
+- intent: list_reservations
+  examples: |
+    - Affiche-moi mes réservations.
+    - Je veux voir mes réservations.
+    - Montre-moi mes réservations.
+    - J'aimerais voir mes réservations.
+    - Où puis-je voir mes réservations ?
+    - Donne-moi la liste de mes réservations.
