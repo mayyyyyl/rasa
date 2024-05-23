@@ -73,7 +73,7 @@ class ActionMakeReservation(Action):
         reservations.append(reservation_details)
         save_reservations(reservations)
         
-        dispatcher.utter_message(text=f"Réservation pour {number_of_people} personnes au nom de {reservation_name} le {date}. Votre numéro de réservation est {reservation_number}.")
+        dispatcher.utter_message(text=f"Réservation pour {number_of_people} personnes au nom de {reservation_name} le {date}.")
         return [SlotSet("reservation_number", reservation_number)]
 
 class ActionConfirmReservation(Action):

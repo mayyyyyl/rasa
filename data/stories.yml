@@ -79,15 +79,6 @@ stories:
   - action: utter_confirmation_cancellation
   - action: utter_goodbye
 
-- story: show reservation information and modify the comment
-  steps:
-  - intent: request_reservation_information
-  - action: action_display_reservation_information
-  - intent: modify_comment
-  - action: action_modify_comment
-  - action: utter_confirmation_comment_modification
-  - action: utter_goodbye
-
 - story: get restaurant information
   steps:
   - intent: request_restaurant_allergens

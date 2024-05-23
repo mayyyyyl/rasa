@@ -120,7 +120,6 @@ responses:
 actions:
 - action_check_availability
 - action_cancel_reservation
-- action_display_reservation_information
 - action_modify_comment
 - action_get_reservation_number
 - action_make_reservation

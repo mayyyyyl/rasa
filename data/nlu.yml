@@ -97,12 +97,6 @@ nlu:
     - Est-il possible d'annuler ma réservation ?
     - Je ne pourrai pas venir, je veux annuler ma réservation.
 
-- intent: request_reservation_information
-  examples: |
-    - Pouvez-vous me donner des informations sur ma réservation ?
-    - Je voudrais savoir quand est ma réservation.
-    - Je souhaite vérifier ma réservation.
-
 - intent: request_date
   examples: |
     - Je veux réserver pour mardi soir
@@ -162,12 +156,6 @@ nlu:
     - pour [5] personnes(number_of_people)
     - pour [6] personnes(number_of_people)
     - pour [7] personnes(number_of_people)
-    - 2 [personnes](number_of_people)
-    - 3 [personnes](number_of_people)
-    - 4 [personnes](number_of_people)
-    - 5 [personnes](number_of_people)
-    - 6 [personnes](number_of_people)
-    - 7 [personnes](number_of_people)
 
 - intent: request_date
   examples: |
