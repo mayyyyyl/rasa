@@ -11,3 +11,30 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Greet and ask for reservation date
+  steps:
+  - intent: book_table
+  - action: utter_ask_date
+
+- rule: Handle date and ask for number of people
+  steps:
+  - intent: request_date
+  - action: utter_ask_number_of_people
+
+- rule: Handle number of people and ask for reservation name
+  steps:
+  - intent: request_number_of_people
+  - action: utter_ask_reservation_name
+
+- rule: Handle reservation name and ask for phone number
+  steps:
+  - intent: request_name
+  - action: utter_ask_phone_number
+
+- rule: Handle phone number and make reservation
+  steps:
+  - intent: request_phone_number
+  - action: action_make_reservation
+  - action: action_confirm_reservation
+  - action: utter_goodbye

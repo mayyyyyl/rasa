@@ -20,7 +20,6 @@ nlu:
     - au revoir
     - à plus tard
     - bonne nuit
-    - salut
     - au revoir
     - passe une bonne journée
     - à bientôt
@@ -34,8 +33,7 @@ nlu:
     - ouais
     - en effet
     - bien sûr
-    - ça semble bien
-    - correct
+    - ça semble biens
 
 - intent: deny
   examples: |
@@ -87,11 +85,151 @@ nlu:
     - est-ce que je parle à un bot ?
     - est-ce que je parle à un humain ?
 
-- intent: weather
+- intent: book_table
   examples: |
-    - Quel temps fait-il aujourd'hui ?
-    - Peux-tu me dire la météo ?
-    - Quel sera le temps demain ?
-    - Donne-moi la météo de Paris.
-    - Je veux connaître la météo.
-    - Quel est le temps prévu pour cette semaine ?
+    - Je voudrais réserver une table.
+    - Est-ce que je peux réserver une table ?
+    - J'aimerais faire une réservation pour ce soir.
+
+- intent: request_cancellation
+  examples: |
+    - Je veux annuler ma réservation.
+    - Est-il possible d'annuler ma réservation ?
+    - Je ne pourrai pas venir, je veux annuler ma réservation.
+
+- intent: request_date
+  examples: |
+    - Je veux réserver pour mardi soir
+    - Quand voulez-vous réserver la table ?
+    - À quelle date préférez-vous réserver ?
+
+- intent: request_number_of_people
+  examples: |
+    - Pour combien de personnes voulez-vous réserver ?
+    - Combien de personnes seront présentes à votre réservation ?
+    - Quel est le nombre de personnes pour la réservation ?
+
+- intent: request_name
+  examples: |
+    - Sous quel nom dois-je réserver la table ?
+    - Quel est le nom de réservation ?
+    - À quel nom dois-je réserver la table ?
+
+- intent: request_phone_number
+  examples: |
+    - Puis-je avoir votre numéro de téléphone pour la réservation ?
+    - Quel est votre numéro de téléphone pour la réservation ?
+    - Avez-vous un numéro de téléphone pour la réservation ?
+
+- intent: modify_comment
+  examples: |
+    - Je voudrais ajouter un commentaire à ma réservation.
+    - Est-ce que je peux modifier le commentaire de ma réservation ?
+    - Comment puis-je ajouter des commentaires à ma réservation ?
+
+- intent: request_number_of_people
+  examples: |
+    - pour [4] personnes(number_of_people)
+    - une réservation pour [2] personnes(number_of_people)
+    - un groupe de [8] personnes merci(number_of_people)
+    - un groupe de [6] personnes.(number_of_people)
+    - un groupe de [10] personnes(number_of_people)
+    - un groupe de [13] personnes(number_of_people)
+    - un groupe de [16] personnes(number_of_people)
+    - un groupe de [17] personnes(number_of_people)
+    - un groupe de [20] personnes(number_of_people)
+    - un groupe de [15] personnes(number_of_people)
+    - pour [1](number_of_people)
+    - pour [2](number_of_people)
+    - pour [3](number_of_people)
+    - pour [4](number_of_people)
+    - pour [5](number_of_people)
+    - pour [6](number_of_people)
+    - pour [7](number_of_people)
+    - pour [8](number_of_people)
+    - pour [9](number_of_people)
+    - pour [10](number_of_people)
+    - pour [11](number_of_people)
+    - pour [2] personnes(number_of_people)
+    - pour [3] personnes(number_of_people)
+    - pour [8] personnes(number_of_people)
+    - pour [5] personnes(number_of_people)
+    - pour [6] personnes(number_of_people)
+    - pour [7] personnes(number_of_people)
+
+- intent: request_date
+  examples: |
+    - le [12/01/2025](date)
+    - [24/05/2024](date)
+    - pour le [04/09/2024](date)
+    - le [22/01/2025](date)
+    - [24/06/2024](date)
+    - pour le [04/03/2024](date)
+    - le [12/02/2025](date)
+    - [24/10/2024](date)
+    - pour le [04/09/2024](date)
+    - le [02/01/2025](date)
+    - [15/05/2024](date)
+    - pour le [22/12/2024](date)
+    - le [30/05/2025](date)
+    - [01/05/2024](date)
+    - pour le [13/09/2024](date)
+    - le [22/01/2025](date)
+    - [20/10/2024](date)
+    - pour le [04/08/2024](date)
+    - le [19/01/2025](date)
+    - [25/06/2024](date)
+    - pour le [13/12/2024](date)
+
+- intent: request_name
+  examples: |
+    - [Jeanne Delaforet](reservation_name)
+    - [Famille Meunier](reservation_name)
+    - [Dupont](reservation_name)
+    - Sous le nom de [Marie Dupuit](reservation_name)
+    - Au nom de [Louise Delaforet].(reservation_name)
+    - [Jeanne Fillon](reservation_name)
+    - [Famille Le Borgne](reservation_name)
+    - [Ahmed](reservation_name)
+    - Sous le nom de [Gérard Loulou](reservation_name)
+    - Au nom de [A Soullit].(reservation_name)
+    - [Jean Foret](reservation_name)
+    - [Famille Miro](reservation_name)
+    - [Nizet](reservation_name)
+    - Sous le nom de [Timeo](reservation_name)
+    - Au nom de [Chloé Germond].(reservation_name)
+
+- intent: request_phone_number
+  examples: |
+    - Oui c'est [0681245212](phone_number)
+    - [0240405568](phone_number)
+    - Mon numéro est [0240452363](phone_number)
+    - Mon téléphone est [0240405568](phone_number)
+    - Bien sûr [0240125868](phone_number)
+  
+- intent: request_restaurant_allergens
+  examples: |
+    - Quels sont les allergènes ?
+    - Je voudrais connaître les allergènes.
+    - Affiche-moi les allergènes.
+    - Puis-je avoir accès à la liste des allergènes ?
+    - Aurez-vous la liste des allergènes.
+    - Pouvez-vous me communiquer la liste des allergènes.
+
+- intent: request_restaurant_menu
+  examples: |
+    - Quel est le menu du jour ?
+    - Donne-moi le menu du jour.
+    - Je veux savoir ce qui est au menu aujourd'hui.
+    - Où puis-je trouver le menu complet ?
+    - Montre-moi le lien vers le menu complet.
+    - Je voudrais consulter le menu complet.
+
+- intent: list_reservations
+  examples: |
+    - Affiche-moi mes réservations.
+    - Je veux voir mes réservations.
+    - Montre-moi mes réservations.
+    - J'aimerais voir mes réservations.
+    - Où puis-je voir mes réservations ?
+    - Donne-moi la liste de mes réservations.

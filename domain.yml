@@ -1,5 +1,43 @@
 version: "3.1"
 
+slots:
+  date:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: date
+  number_of_people:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: number_of_people
+  reservation_name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: reservation_name
+  phone_number:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: phone_number
+    - type: from_text
+      not_intent: 
+        - chitchat
+      value: 
+        pattern: "^[0-9]{10}$"
+  reservation_number:
+    type: text
+    mappings:
+    - type: from_text
+
+entities:
+  - reservation_name
+  - date
+  - number_of_people
+  - phone_number
+  - reservation_number
+
 intents:
   - greet
   - goodbye
@@ -8,30 +46,86 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
-  - weather
+  - book_table
+  - request_date
+  - request_number_of_people
+  - request_name
+  - request_phone_number
+  - request_cancellation
+  - request_reservation_number
+  - request_reservation_information
+  - modify_comment
+  - request_restaurant_allergens
+  - request_restaurant_menu
+  - inform_choice
+  - chitchat
+  - list_reservations
 
 responses:
   utter_greet:
-  - text: "Salut ! Comment ça va ?"
+  - text: "Bonjour ! \n
+  Que voulez vous faire réserver une table, annuler une réservation, obtenir des informations sur une réservation, obtenir le menu du restaurant ?"
 
   utter_cheer_up:
-  - text: "Voici quelque chose pout te remonter le moral:"
-    image: "https://i.imgur.com/s5Mr7Co.jpeg"
+  - text: "Voici quelque chose pour te remonter le moral:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
 
   utter_did_that_help:
-  - text: "Est ce que ça vous a aidé ?"
+  - text: "Est-ce que ça vous a aidé?"
 
   utter_happy:
-  - text: "Super !"
+  - text: "Super!"
 
   utter_goodbye:
   - text: "Au revoir"
 
   utter_iamabot:
-  - text: "Oui je suis un bot, propulsé by Rasa."
+  - text: "Je suis un bot, propulsé par Rasa."
 
-  utter_weather:
-    - text: "Bien sûr, il fait beau. Mais comme dirait le dicton en avril ne te découvre pas d'un fil !"
+  utter_ask_date:
+  - text: "Pour quelle date souhaitez-vous réserver ?"
+  
+  utter_ask_number_of_people:
+  - text: "Pour combien de personnes voulez-vous réserver ?"
+  
+  utter_ask_reservation_name:
+  - text: "Sous quel nom dois-je réserver la table ?"
+  
+  utter_ask_phone_number:
+  - text: "Puis-je avoir votre numéro de téléphone pour la réservation ?"
+  
+  utter_ask_reservation_number:
+  - text: "Quel est le numéro de votre réservation ?"
+  
+  utter_confirmation_cancellation:
+  - text: "Votre réservation a été annulée."
+  
+  utter_confirmation_comment_modification:
+  - text: "Le commentaire de votre réservation a été modifié avec succès."
+
+  utter_get_all_allergens:
+  - text: |
+        Voici tous les allergènes présents dans nos plats: 
+        - l'œuf,
+        - l'arachide,
+        - les protéines du lait de vache (le lait maternel ne provoque pas d'allergie),
+        - la moutarde,
+        - le poisson,
+        - les fruits à coque.
+        Certains des allergènes suivant peuvent être enlevés par les chefs lors de la préparation pour plus d'informations veuillez nous appeler ;)
+
+  utter_show_menu:
+  - text: "Voici le menu du restaurant : https://basilic-and-co.com/wp-content/uploads/2019/12/Menu-carte-restaurant-Basilic-and-Co-Nantes-Schuman.pdf"
+
+actions:
+- action_check_availability
+- action_cancel_reservation
+- action_modify_comment
+- action_get_reservation_number
+- action_make_reservation
+- action_confirm_reservation
+- action_handle_choice
+- action_list_reservations
 
 session_config:
   session_expiration_time: 60
